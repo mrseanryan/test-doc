@@ -1,10 +1,39 @@
 # test-doc README
 
-Generate a **markdown summary of your C# unit tests** via a simple C# script (CSX script executed via CSI).
+Generate a **markdown summary of your C# unit tests** via a simple C# script (CSX script executed via dotnet script or CSI.exe).
 
 - currently supports **NUnit based tests**
 
 ## Usage
+
+**test-doc** is a CSI script. There are two main ways to execute a CSX script:
+
+- via dotnet script (.NET Core 6 or 7)
+- via CSI.exe (installed with Microsoft Visual Studio)
+
+### Usage - via dotnet script
+
+1. Check that .NET Core 6 or 7 is installed:
+
+`dotnet --version`
+
+2. Install the 'script' tool of dotnet
+
+`dotnet tool install -g dotnet-script`
+
+3. Build your unit tests and note the path to the assembly (the DLL file).
+
+4. Open a command prompt.
+
+5. CD to this directory
+
+6. Execute the C# script via `dotnet script`:
+
+`dotnet script test-doc.csx <path to the unit tests DLL>`
+
+This outputs a summary of all unit tests in markdown format.
+
+### Usage - via CSI.exe (installed with Microsoft Visual Studio)
 
 1. Build your unit tests and note the path to the assembly (the DLL file).
 
@@ -40,8 +69,10 @@ This is installed as part of **Microsoft Visual Studio**.
 
 ## Compatibility
 
-Tested with `Microsoft (R) Visual C# Interactive Compiler version 4.3.0-3.22401.3`.
+Tested with:
+- dotnet script (dotnet version 6.0.400)
+- Microsoft (R) Visual C# Interactive Compiler version 4.3.0-3.22401.3
 
-The version of CSI determines which .NET framework will be used to execute. This limits which .NET assemblies (DLL files) can be loaded for analyes.
+The version of the tool (CSI or dotnet script) determines which .NET framework will be used to execute. This limits which .NET assemblies (DLL files) can be loaded for analysis.
 
-So for example, if the CSI tool is .NET Core based, then it might not be able to load Windows specific .NET assemblies.
+So for example, if the CSI tool is .NET Core based, then it might not be able to load Windows specific .NET assemblies. In that case, it is beter to use `dotnet script`.
