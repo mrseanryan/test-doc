@@ -6,7 +6,7 @@ Generate a **markdown summary of your C# unit tests** via a simple C# script (CS
 
 ## Usage
 
-**test-doc** is a CSI script. There are two main ways to execute a CSX script:
+**test-doc** is a CSX script (C# script). There are two main ways to execute a CSX script:
 
 - via dotnet script (.NET Core 6 or 7)
 - via CSI.exe (installed with Microsoft Visual Studio)
@@ -81,6 +81,6 @@ Tested with:
 - dotnet script (dotnet version 6.0.400)
 - Microsoft (R) Visual C# Interactive Compiler version 4.3.0-3.22401.3
 
-The version of the tool (CSI or dotnet script) determines which .NET framework will be used to execute. This limits which .NET assemblies (DLL files) can be loaded for analysis.
+The version of the tool (`dotnet script` or else `CSI.exe`) determines which .NET framework will be used to execute. This limits which .NET assemblies (DLL files) can be loaded for analysis.
 
 So for example, if the CSI tool is .NET Core based, then it might not be able to load Windows specific .NET assemblies. In that case, it is beter to use `dotnet script`.
