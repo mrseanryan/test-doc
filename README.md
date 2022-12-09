@@ -63,7 +63,15 @@ This outputs a summary of all unit tests in markdown format.
 
 ## Dependencies
 
-The C# script requires [CSI](https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/january/essential-net-csharp-scripting) to execute.
+The C# script requires tooling to execute the CSX script.
+
+There are 2 options:
+
+1. [recommended] [dotnet core](https://dotnet.microsoft.com/en-us/download/dotnet) and [dotnet script](https://github.com/dotnet-script/dotnet-script)
+
+OR
+
+2. [CSI](https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/january/essential-net-csharp-scripting) to execute.
 
 This is installed as part of **Microsoft Visual Studio**.
 
